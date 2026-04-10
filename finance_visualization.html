@@ -1,0 +1,241 @@
+<style>
+.lx-highlight { position: relative; border-radius:3px; padding:1px 2px;}
+.lx-highlight .lx-tooltip {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  background: #333;
+  color: #fff;
+  text-align: left;
+  border-radius: 4px;
+  padding: 6px 8px;
+  position: absolute;
+  z-index: 1000;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  max-width: 240px;
+  white-space: normal;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+.lx-highlight:hover .lx-tooltip { visibility: visible; opacity:1; }
+.lx-animated-wrapper { max-width: 100%; font-family: Arial, sans-serif; }
+.lx-controls {
+  background: #fafafa; border: 1px solid #90caf9; border-radius: 8px;
+  padding: 12px; margin-bottom: 16px;
+}
+.lx-button-row {
+  display: flex; justify-content: center; gap: 8px; margin-bottom: 12px;
+}
+.lx-control-btn {
+  background: #4285f4; color: white; border: none; border-radius: 4px;
+  padding: 8px 16px; cursor: pointer; font-size: 13px; font-weight: 500;
+  transition: background-color 0.2s;
+}
+.lx-control-btn:hover { background: #3367d6; }
+.lx-progress-container {
+  margin-bottom: 8px;
+}
+.lx-progress-slider {
+  width: 100%; margin: 0; appearance: none; height: 6px;
+  background: #ddd; border-radius: 3px; outline: none;
+}
+.lx-progress-slider::-webkit-slider-thumb {
+  appearance: none; width: 18px; height: 18px; background: #4285f4;
+  border-radius: 50%; cursor: pointer;
+}
+.lx-progress-slider::-moz-range-thumb {
+  width: 18px; height: 18px; background: #4285f4; border-radius: 50%;
+  cursor: pointer; border: none;
+}
+.lx-status-text {
+  text-align: center; font-size: 12px; color: #666; margin-top: 4px;
+}
+.lx-text-window {
+  font-family: monospace; white-space: pre-wrap; border: 1px solid #90caf9;
+  padding: 12px; max-height: 260px; overflow-y: auto; margin-bottom: 12px;
+  line-height: 1.6;
+}
+.lx-attributes-panel {
+  background: #fafafa; border: 1px solid #90caf9; border-radius: 6px;
+  padding: 8px 10px; margin-top: 8px; font-size: 13px;
+}
+.lx-current-highlight {
+  border-bottom: 4px solid #ff4444;
+  font-weight: bold;
+  animation: lx-pulse 1s ease-in-out;
+}
+@keyframes lx-pulse {
+  0% { text-decoration-color: #ff4444; }
+  50% { text-decoration-color: #ff0000; }
+  100% { text-decoration-color: #ff4444; }
+}
+.lx-legend {
+  font-size: 12px; margin-bottom: 8px;
+  padding-bottom: 8px; border-bottom: 1px solid #e0e0e0;
+}
+.lx-label {
+  display: inline-block;
+  padding: 2px 4px;
+  border-radius: 3px;
+  margin-right: 4px;
+  color: #000;
+}
+.lx-attr-key {
+  font-weight: 600;
+  color: #1565c0;
+  letter-spacing: 0.3px;
+}
+.lx-attr-value {
+  font-weight: 400;
+  opacity: 0.85;
+  letter-spacing: 0.2px;
+}
+
+/* Add optimizations with larger fonts and better readability for GIFs */
+.lx-gif-optimized .lx-text-window { font-size: 16px; line-height: 1.8; }
+.lx-gif-optimized .lx-attributes-panel { font-size: 15px; }
+.lx-gif-optimized .lx-current-highlight { text-decoration-thickness: 4px; }
+</style>
+    <div class="lx-animated-wrapper lx-gif-optimized">
+      <div class="lx-attributes-panel">
+        <div class="lx-legend">Highlights Legend: <span class="lx-label" style="background-color:#D2E3FC;">date</span> <span class="lx-label" style="background-color:#C8E6C9;">economic_indicator</span> <span class="lx-label" style="background-color:#FEF0C3;">financial_metric</span> <span class="lx-label" style="background-color:#F9DEDC;">market_event</span> <span class="lx-label" style="background-color:#FFDDBE;">organization</span> <span class="lx-label" style="background-color:#EADDFF;">percentage</span> <span class="lx-label" style="background-color:#C4E9E4;">profit_loss</span></div>
+        <div id="attributesContainer"></div>
+      </div>
+      <div class="lx-text-window" id="textWindow">
+        1. Corporate Overview
+<span class="lx-highlight lx-current-highlight" data-idx="0" style="background-color:#FFDDBE;">Infosys Limited</span>, established in <span class="lx-highlight" data-idx="1" style="background-color:#D2E3FC;">1981</span> with an initial capital of <span class="lx-highlight" data-idx="2" style="background-color:#FEF0C3;">US$250</span>, has evolved into a global
+leader in next-generation digital services and consulting. Headquartered in India, the company
+operates across 59 countries with 292 offices worldwide. As of <span class="lx-highlight" data-idx="3" style="background-color:#D2E3FC;">fiscal year 2025</span>, <span class="lx-highlight" data-idx="4" style="background-color:#FFDDBE;">Infosys</span> employs
+<span class="lx-highlight" data-idx="5" style="background-color:#FEF0C3;">3,23,578 professionals</span> serving <span class="lx-highlight" data-idx="6" style="background-color:#FEF0C3;">1,869 active clients</span> globally. The organization pioneered the Global
+Delivery Model and became the first Indian IT company listed on <span class="lx-highlight" data-idx="7" style="background-color:#FFDDBE;">NASDAQ</span>. With a market
+capitalization of approximately <span class="lx-highlight" data-idx="8" style="background-color:#FEF0C3;">US$75.8 billion</span>, Infosys continues to maintain a strong, <span class="lx-highlight" data-idx="9" style="background-color:#C4E9E4;">debt-free</span>
+balance sheet supported by <span class="lx-highlight" data-idx="10" style="background-color:#FEF0C3;">high liquidity</span> and disciplined capital allocation. The company’s purpose
+— “To amplify human potential and create the next opportunity for people, businesses and
+communities” — drives its enterprise AI-first transformation strategy, global expansion,
+innovation-led growth, and stakeholder value creation.
+
+2. Financial Performance – Fiscal 2025
+<span class="lx-highlight" data-idx="11" style="background-color:#D2E3FC;">Fiscal Year 2025</span> marked strong financial execution for <span class="lx-highlight" data-idx="12" style="background-color:#FFDDBE;">Infosys</span>. The company reported <span class="lx-highlight" data-idx="13" style="background-color:#FEF0C3;">total
+revenues of ■1,62,990 crore (US$19,277 million)</span>, reflecting <span class="lx-highlight" data-idx="14" style="background-color:#EADDFF;">6.1%</span> year-over-year growth and <span class="lx-highlight" data-idx="15" style="background-color:#EADDFF;">4.2%</span>
+constant currency growth. <span class="lx-highlight" data-idx="16" style="background-color:#C4E9E4;">Net profit</span> stood at <span class="lx-highlight" data-idx="17" style="background-color:#FEF0C3;">■26,713 crore (US$3,158 million)</span>, supported by a
+robust <span class="lx-highlight" data-idx="18" style="background-color:#FEF0C3;">operating margin of <span class="lx-highlight" data-idx="19" style="background-color:#EADDFF;">21.1%</span></span>. <span class="lx-highlight" data-idx="20" style="background-color:#FEF0C3;">Free Cash Flow reached ■34,549 crore</span>, registering <span class="lx-highlight" data-idx="21" style="background-color:#EADDFF;">44.8%</span>
+growth YoY, with <span class="lx-highlight" data-idx="22" style="background-color:#FEF0C3;">FCF conversion at <span class="lx-highlight" data-idx="23" style="background-color:#EADDFF;">129.2%</span> of net profit</span>. <span class="lx-highlight" data-idx="24" style="background-color:#FEF0C3;">Dividend per share was ■43</span> (including
+<span class="lx-highlight" data-idx="25" style="background-color:#FEF0C3;">■21 interim dividend</span>), reflecting strong shareholder return focus. <span class="lx-highlight" data-idx="26" style="background-color:#FEF0C3;">Consolidated cash and
+investments totaled ■47,549 crore</span>, reinforcing liquidity strength. <span class="lx-highlight" data-idx="27" style="background-color:#FEF0C3;">Large deal Total Contract Value
+(TCV) reached US$11.6 billion</span>, and 85 clients generated over <span class="lx-highlight" data-idx="28" style="background-color:#FEF0C3;">US$50 million</span> annually. These
+financial indicators demonstrate operational efficiency, strong margin management, and disciplined
+growth.
+
+3. Revenue Mix &amp; Geographic Distribution
+Revenue distribution reflects diversified global exposure. In <span class="lx-highlight" data-idx="29" style="background-color:#D2E3FC;">FY 2024-25</span>, North America contributed
+<span class="lx-highlight" data-idx="30" style="background-color:#EADDFF;">57</span>.<span class="lx-highlight" data-idx="31" style="background-color:#EADDFF;">9%</span> of <span class="lx-highlight" data-idx="32" style="background-color:#FEF0C3;">total revenues</span>, Europe accounted for <span class="lx-highlight" data-idx="33" style="background-color:#EADDFF;">29.8%</span>, Rest of the World contributed <span class="lx-highlight" data-idx="34" style="background-color:#EADDFF;">9.2%</span>, and
+India represented <span class="lx-highlight" data-idx="35" style="background-color:#EADDFF;">3.1%</span>. This geographic mix underscores <span class="lx-highlight" data-idx="36" style="background-color:#FFDDBE;">Infosys</span>’ strong presence in developed
+markets while maintaining <span class="lx-highlight" data-idx="37" style="background-color:#F9DEDC;">expanding footprints</span> in emerging economies. Sector diversification
+across Banking &amp; Financial Services, Manufacturing, Retail, Energy, Utilities, Communications,
+Healthcare, and Life Sciences reduces <span class="lx-highlight" data-idx="38" style="background-color:#C8E6C9;">concentration risk</span>. Strategic client partnerships and
+long-term digital transformation engagements continue to drive <span class="lx-highlight" data-idx="39" style="background-color:#FEF0C3;">recurring revenue stability</span> and
+<span class="lx-highlight" data-idx="40" style="background-color:#FEF0C3;">large-deal momentum</span> across geographies.
+
+4. Strategic Priorities &amp; Enterprise AI
+Infosys’ strategy centers on <span class="lx-highlight" data-idx="41" style="background-color:#F9DEDC;">Enterprise AI transformation</span>. Through <span class="lx-highlight" data-idx="42" style="background-color:#FFDDBE;">Infosys Topaz</span>, the company
+integrates Artificial Intelligence, Cloud (<span class="lx-highlight" data-idx="43" style="background-color:#FFDDBE;">Infosys Cobalt</span>), Data architecture, Cybersecurity,
+Automation, and Digital platforms to enable AI-first enterprises. The organization is investing in
+generative AI, agentic AI systems, hybrid multi-cloud environments, automation frameworks, and
+domain-specific AI models. Focus areas include cost optimization, modernization of legacy
+systems, intelligent operations, predictive analytics, cybersecurity resilience, and data fabric
+architectures. Enterprise AI is positioned as a monetization engine, helping clients improve
+productivity, optimize supply chains, enhance customer experience, and accelerate innovation
+cycles.
+
+5. ESG &amp; Sustainability Performance
+<span class="lx-highlight" data-idx="44" style="background-color:#FFDDBE;">Infosys</span> continues to lead in Environmental, Social, and Governance (ESG) performance. The
+company has remained carbon neutral for six consecutive years across Scope 1, 2, and 3
+emissions. It has installed 60 MW of solar captive power plants and implemented carbon offset
+programs benefiting over 2,72,000 rural families. Water sustainability initiatives include 11 lake
+rejuvenation projects, adding 4.3 billion liters to water holding capacity. The company emphasizes
+regenerative practices and climate positivity goals. <span class="lx-highlight" data-idx="45" style="background-color:#FFDDBE;">Infosys</span> has been recognized among the World’s
+Most Ethical Companies f
+      </div>
+      <div class="lx-controls">
+        <div class="lx-button-row">
+          <button class="lx-control-btn" onclick="playPause()">▶️ Play</button>
+          <button class="lx-control-btn" onclick="prevExtraction()">⏮ Previous</button>
+          <button class="lx-control-btn" onclick="nextExtraction()">⏭ Next</button>
+        </div>
+        <div class="lx-progress-container">
+          <input type="range" id="progressSlider" class="lx-progress-slider"
+                 min="0" max="45" value="0"
+                 onchange="jumpToExtraction(this.value)">
+        </div>
+        <div class="lx-status-text">
+          Entity <span id="entityInfo">1/46</span> |
+          Pos <span id="posInfo">[22-37]</span>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function() {
+        const extractions = [{"index": 0, "class": "organization", "text": "Infosys Limited", "color": "#FFDDBE", "startPos": 22, "endPos": 37, "beforeText": "1. Corporate Overview\n", "extractionText": "Infosys Limited", "afterText": ", established in 1981 with an initial capital of US$250, has evolved into a global\nleader in next-generation digital services and consulting. Headquar", "attributesHtml": "<div><strong>class:</strong> organization</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">type</span>: <span class=\"lx-attr-value\">company</span>}</div>"}, {"index": 1, "class": "date", "text": "1981", "color": "#D2E3FC", "startPos": 54, "endPos": 58, "beforeText": "1. Corporate Overview\nInfosys Limited, established in ", "extractionText": "1981", "afterText": " with an initial capital of US$250, has evolved into a global\nleader in next-generation digital services and consulting. Headquartered in India, the c", "attributesHtml": "<div><strong>class:</strong> date</div><div><strong>attributes:</strong> {}</div>"}, {"index": 2, "class": "financial_metric", "text": "US$250", "color": "#FEF0C3", "startPos": 86, "endPos": 92, "beforeText": "1. Corporate Overview\nInfosys Limited, established in 1981 with an initial capital of ", "extractionText": "US$250", "afterText": ", has evolved into a global\nleader in next-generation digital services and consulting. Headquartered in India, the company\noperates across 59 countrie", "attributesHtml": "<div><strong>class:</strong> financial_metric</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">metric_type</span>: <span class=\"lx-attr-value\">initial capital</span>}</div>"}, {"index": 3, "class": "date", "text": "fiscal year 2025", "color": "#D2E3FC", "startPos": 278, "endPos": 294, "beforeText": "n next-generation digital services and consulting. Headquartered in India, the company\noperates across 59 countries with 292 offices worldwide. As of ", "extractionText": "fiscal year 2025", "afterText": ", Infosys employs\n3,23,578 professionals serving 1,869 active clients globally. The organization pioneered the Global\nDelivery Model and became the fi", "attributesHtml": "<div><strong>class:</strong> date</div><div><strong>attributes:</strong> {}</div>"}, {"index": 4, "class": "organization", "text": "Infosys", "color": "#FFDDBE", "startPos": 296, "endPos": 303, "beforeText": "digital services and consulting. Headquartered in India, the company\noperates across 59 countries with 292 offices worldwide. As of fiscal year 2025, ", "extractionText": "Infosys", "afterText": " employs\n3,23,578 professionals serving 1,869 active clients globally. The organization pioneered the Global\nDelivery Model and became the first India", "attributesHtml": "<div><strong>class:</strong> organization</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">type</span>: <span class=\"lx-attr-value\">company</span>}</div>"}, {"index": 5, "class": "financial_metric", "text": "3,23,578 professionals", "color": "#FEF0C3", "startPos": 312, "endPos": 334, "beforeText": " and consulting. Headquartered in India, the company\noperates across 59 countries with 292 offices worldwide. As of fiscal year 2025, Infosys employs\n", "extractionText": "3,23,578 professionals", "afterText": " serving 1,869 active clients globally. The organization pioneered the Global\nDelivery Model and became the first Indian IT company listed on NASDAQ. ", "attributesHtml": "<div><strong>class:</strong> financial_metric</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">metric_type</span>: <span class=\"lx-attr-value\">employees</span>}</div>"}, {"index": 6, "class": "financial_metric", "text": "1,869 active clients", "color": "#FEF0C3", "startPos": 343, "endPos": 363, "beforeText": "in India, the company\noperates across 59 countries with 292 offices worldwide. As of fiscal year 2025, Infosys employs\n3,23,578 professionals serving ", "extractionText": "1,869 active clients", "afterText": " globally. The organization pioneered the Global\nDelivery Model and became the first Indian IT company listed on NASDAQ. With a market\ncapitalization ", "attributesHtml": "<div><strong>class:</strong> financial_metric</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">metric_type</span>: <span class=\"lx-attr-value\">clients</span>}</div>"}, {"index": 7, "class": "organization", "text": "NASDAQ", "color": "#FFDDBE", "startPos": 476, "endPos": 482, "beforeText": "ssionals serving 1,869 active clients globally. The organization pioneered the Global\nDelivery Model and became the first Indian IT company listed on ", "extractionText": "NASDAQ", "afterText": ". With a market\ncapitalization of approximately US$75.8 billion, Infosys continues to maintain a strong, debt-free\nbalance sheet supported by high liq", "attributesHtml": "<div><strong>class:</strong> organization</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">type</span>: <span class=\"lx-attr-value\">exchange</span>}</div>"}, {"index": 8, "class": "financial_metric", "text": "US$75.8 billion", "color": "#FEF0C3", "startPos": 530, "endPos": 545, "beforeText": "ganization pioneered the Global\nDelivery Model and became the first Indian IT company listed on NASDAQ. With a market\ncapitalization of approximately ", "extractionText": "US$75.8 billion", "afterText": ", Infosys continues to maintain a strong, debt-free\nbalance sheet supported by high liquidity and disciplined capital allocation. The company\u2019s purpos", "attributesHtml": "<div><strong>class:</strong> financial_metric</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">metric_type</span>: <span class=\"lx-attr-value\">market capitalization</span>}</div>"}, {"index": 9, "class": "profit_loss", "text": "debt-free", "color": "#C4E9E4", "startPos": 587, "endPos": 596, "beforeText": " the first Indian IT company listed on NASDAQ. With a market\ncapitalization of approximately US$75.8 billion, Infosys continues to maintain a strong, ", "extractionText": "debt-free", "afterText": "\nbalance sheet supported by high liquidity and disciplined capital allocation. The company\u2019s purpose\n\u2014 \u201cTo amplify human potential and create the next", "attributesHtml": "<div><strong>class:</strong> profit_loss</div><div><strong>attributes:</strong> {}</div>"}, {"index": 10, "class": "financial_metric", "text": "high liquidity", "color": "#FEF0C3", "startPos": 624, "endPos": 638, "beforeText": "n NASDAQ. With a market\ncapitalization of approximately US$75.8 billion, Infosys continues to maintain a strong, debt-free\nbalance sheet supported by ", "extractionText": "high liquidity", "afterText": " and disciplined capital allocation. The company\u2019s purpose\n\u2014 \u201cTo amplify human potential and create the next opportunity for people, businesses and\nco", "attributesHtml": "<div><strong>class:</strong> financial_metric</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">metric_type</span>: <span class=\"lx-attr-value\">liquidity</span>}</div>"}, {"index": 11, "class": "date", "text": "Fiscal Year 2025", "color": "#D2E3FC", "startPos": 970, "endPos": 986, "beforeText": "se AI-first transformation strategy, global expansion,\ninnovation-led growth, and stakeholder value creation.\n\n2. Financial Performance \u2013 Fiscal 2025\n", "extractionText": "Fiscal Year 2025", "afterText": " marked strong financial execution for Infosys. The company reported total\nrevenues of \u25a01,62,990 crore (US$19,277 million), reflecting 6.1% year-over-", "attributesHtml": "<div><strong>class:</strong> date</div><div><strong>attributes:</strong> {}</div>"}, {"index": 12, "class": "organization", "text": "Infosys", "color": "#FFDDBE", "startPos": 1025, "endPos": 1032, "beforeText": "innovation-led growth, and stakeholder value creation.\n\n2. Financial Performance \u2013 Fiscal 2025\nFiscal Year 2025 marked strong financial execution for ", "extractionText": "Infosys", "afterText": ". The company reported total\nrevenues of \u25a01,62,990 crore (US$19,277 million), reflecting 6.1% year-over-year growth and 4.2%\nconstant currency growth.", "attributesHtml": "<div><strong>class:</strong> organization</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">type</span>: <span class=\"lx-attr-value\">company</span>}</div>"}, {"index": 13, "class": "financial_metric", "text": "total revenues of \u25a01,62,990 crore (US$19,277 million)", "color": "#FEF0C3", "startPos": 1055, "endPos": 1108, "beforeText": "keholder value creation.\n\n2. Financial Performance \u2013 Fiscal 2025\nFiscal Year 2025 marked strong financial execution for Infosys. The company reported ", "extractionText": "total\nrevenues of \u25a01,62,990 crore (US$19,277 million)", "afterText": ", reflecting 6.1% year-over-year growth and 4.2%\nconstant currency growth. Net profit stood at \u25a026,713 crore (US$3,158 million), supported by a\nrobust", "attributesHtml": "<div><strong>class:</strong> financial_metric</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">metric_type</span>: <span class=\"lx-attr-value\">revenue</span>}</div>"}, {"index": 14, "class": "percentage", "text": "6.1%", "color": "#EADDFF", "startPos": 1121, "endPos": 1125, "beforeText": "iscal Year 2025 marked strong financial execution for Infosys. The company reported total\nrevenues of \u25a01,62,990 crore (US$19,277 million), reflecting ", "extractionText": "6.1%", "afterText": " year-over-year growth and 4.2%\nconstant currency growth. Net profit stood at \u25a026,713 crore (US$3,158 million), supported by a\nrobust operating margin", "attributesHtml": "<div><strong>class:</strong> percentage</div><div><strong>attributes:</strong> {}</div>"}, {"index": 15, "class": "percentage", "text": "4.2%", "color": "#EADDFF", "startPos": 1152, "endPos": 1156, "beforeText": "inancial execution for Infosys. The company reported total\nrevenues of \u25a01,62,990 crore (US$19,277 million), reflecting 6.1% year-over-year growth and ", "extractionText": "4.2%", "afterText": "\nconstant currency growth. Net profit stood at \u25a026,713 crore (US$3,158 million), supported by a\nrobust operating margin of 21.1%. Free Cash Flow reach", "attributesHtml": "<div><strong>class:</strong> percentage</div><div><strong>attributes:</strong> {}</div>"}, {"index": 16, "class": "profit_loss", "text": "Net profit", "color": "#C4E9E4", "startPos": 1183, "endPos": 1193, "beforeText": " The company reported total\nrevenues of \u25a01,62,990 crore (US$19,277 million), reflecting 6.1% year-over-year growth and 4.2%\nconstant currency growth. ", "extractionText": "Net profit", "afterText": " stood at \u25a026,713 crore (US$3,158 million), supported by a\nrobust operating margin of 21.1%. Free Cash Flow reached \u25a034,549 crore, registering 44.8%\ng", "attributesHtml": "<div><strong>class:</strong> profit_loss</div><div><strong>attributes:</strong> {}</div>"}, {"index": 17, "class": "financial_metric", "text": "\u25a026,713 crore (US$3,158 million)", "color": "#FEF0C3", "startPos": 1203, "endPos": 1235, "beforeText": "d total\nrevenues of \u25a01,62,990 crore (US$19,277 million), reflecting 6.1% year-over-year growth and 4.2%\nconstant currency growth. Net profit stood at ", "extractionText": "\u25a026,713 crore (US$3,158 million)", "afterText": ", supported by a\nrobust operating margin of 21.1%. Free Cash Flow reached \u25a034,549 crore, registering 44.8%\ngrowth YoY, with FCF conversion at 129.2% o", "attributesHtml": "<div><strong>class:</strong> financial_metric</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">metric_type</span>: <span class=\"lx-attr-value\">net profit</span>}</div>"}, {"index": 18, "class": "financial_metric", "text": "operating margin of 21.1%", "color": "#FEF0C3", "startPos": 1259, "endPos": 1284, "beforeText": " reflecting 6.1% year-over-year growth and 4.2%\nconstant currency growth. Net profit stood at \u25a026,713 crore (US$3,158 million), supported by a\nrobust ", "extractionText": "operating margin of 21.1%", "afterText": ". Free Cash Flow reached \u25a034,549 crore, registering 44.8%\ngrowth YoY, with FCF conversion at 129.2% of net profit. Dividend per share was \u25a043 (includi", "attributesHtml": "<div><strong>class:</strong> financial_metric</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">metric_type</span>: <span class=\"lx-attr-value\">operating margin</span>}</div>"}, {"index": 19, "class": "percentage", "text": "21.1%", "color": "#EADDFF", "startPos": 1279, "endPos": 1284, "beforeText": "r-over-year growth and 4.2%\nconstant currency growth. Net profit stood at \u25a026,713 crore (US$3,158 million), supported by a\nrobust operating margin of ", "extractionText": "21.1%", "afterText": ". Free Cash Flow reached \u25a034,549 crore, registering 44.8%\ngrowth YoY, with FCF conversion at 129.2% of net profit. Dividend per share was \u25a043 (includi", "attributesHtml": "<div><strong>class:</strong> percentage</div><div><strong>attributes:</strong> {}</div>"}, {"index": 20, "class": "financial_metric", "text": "Free Cash Flow reached \u25a034,549 crore", "color": "#FEF0C3", "startPos": 1286, "endPos": 1322, "beforeText": "year growth and 4.2%\nconstant currency growth. Net profit stood at \u25a026,713 crore (US$3,158 million), supported by a\nrobust operating margin of 21.1%. ", "extractionText": "Free Cash Flow reached \u25a034,549 crore", "afterText": ", registering 44.8%\ngrowth YoY, with FCF conversion at 129.2% of net profit. Dividend per share was \u25a043 (including\n\u25a021 interim dividend), reflecting s", "attributesHtml": "<div><strong>class:</strong> financial_metric</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">metric_type</span>: <span class=\"lx-attr-value\">free cash flow</span>}</div>"}, {"index": 21, "class": "percentage", "text": "44.8%", "color": "#EADDFF", "startPos": 1336, "endPos": 1341, "beforeText": " profit stood at \u25a026,713 crore (US$3,158 million), supported by a\nrobust operating margin of 21.1%. Free Cash Flow reached \u25a034,549 crore, registering ", "extractionText": "44.8%", "afterText": "\ngrowth YoY, with FCF conversion at 129.2% of net profit. Dividend per share was \u25a043 (including\n\u25a021 interim dividend), reflecting strong shareholder r", "attributesHtml": "<div><strong>class:</strong> percentage</div><div><strong>attributes:</strong> {}</div>"}, {"index": 22, "class": "financial_metric", "text": "FCF conversion at 129.2% of net profit", "color": "#FEF0C3", "startPos": 1359, "endPos": 1397, "beforeText": "3 crore (US$3,158 million), supported by a\nrobust operating margin of 21.1%. Free Cash Flow reached \u25a034,549 crore, registering 44.8%\ngrowth YoY, with ", "extractionText": "FCF conversion at 129.2% of net profit", "afterText": ". Dividend per share was \u25a043 (including\n\u25a021 interim dividend), reflecting strong shareholder return focus. Consolidated cash and\ninvestments totaled \u25a0", "attributesHtml": "<div><strong>class:</strong> financial_metric</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">metric_type</span>: <span class=\"lx-attr-value\">FCF conversion</span>}</div>"}, {"index": 23, "class": "percentage", "text": "129.2%", "color": "#EADDFF", "startPos": 1377, "endPos": 1383, "beforeText": "million), supported by a\nrobust operating margin of 21.1%. Free Cash Flow reached \u25a034,549 crore, registering 44.8%\ngrowth YoY, with FCF conversion at ", "extractionText": "129.2%", "afterText": " of net profit. Dividend per share was \u25a043 (including\n\u25a021 interim dividend), reflecting strong shareholder return focus. Consolidated cash and\ninvestm", "attributesHtml": "<div><strong>class:</strong> percentage</div><div><strong>attributes:</strong> {}</div>"}, {"index": 24, "class": "financial_metric", "text": "Dividend per share was \u25a043", "color": "#FEF0C3", "startPos": 1399, "endPos": 1425, "beforeText": " a\nrobust operating margin of 21.1%. Free Cash Flow reached \u25a034,549 crore, registering 44.8%\ngrowth YoY, with FCF conversion at 129.2% of net profit. ", "extractionText": "Dividend per share was \u25a043", "afterText": " (including\n\u25a021 interim dividend), reflecting strong shareholder return focus. Consolidated cash and\ninvestments totaled \u25a047,549 crore, reinforcing li", "attributesHtml": "<div><strong>class:</strong> financial_metric</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">metric_type</span>: <span class=\"lx-attr-value\">dividend per share</span>}</div>"}, {"index": 25, "class": "financial_metric", "text": "\u25a021 interim dividend", "color": "#FEF0C3", "startPos": 1437, "endPos": 1457, "beforeText": "ree Cash Flow reached \u25a034,549 crore, registering 44.8%\ngrowth YoY, with FCF conversion at 129.2% of net profit. Dividend per share was \u25a043 (including\n", "extractionText": "\u25a021 interim dividend", "afterText": "), reflecting strong shareholder return focus. Consolidated cash and\ninvestments totaled \u25a047,549 crore, reinforcing liquidity strength. Large deal Tot", "attributesHtml": "<div><strong>class:</strong> financial_metric</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">metric_type</span>: <span class=\"lx-attr-value\">interim dividend</span>}</div>"}, {"index": 26, "class": "financial_metric", "text": "Consolidated cash and investments totaled \u25a047,549 crore", "color": "#FEF0C3", "startPos": 1504, "endPos": 1559, "beforeText": "with FCF conversion at 129.2% of net profit. Dividend per share was \u25a043 (including\n\u25a021 interim dividend), reflecting strong shareholder return focus. ", "extractionText": "Consolidated cash and\ninvestments totaled \u25a047,549 crore", "afterText": ", reinforcing liquidity strength. Large deal Total Contract Value\n(TCV) reached US$11.6 billion, and 85 clients generated over US$50 million annually.", "attributesHtml": "<div><strong>class:</strong> financial_metric</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">metric_type</span>: <span class=\"lx-attr-value\">cash and investments</span>}</div>"}, {"index": 27, "class": "financial_metric", "text": "Large deal Total Contract Value (TCV) reached US$11.6 billion", "color": "#FEF0C3", "startPos": 1593, "endPos": 1654, "beforeText": "terim dividend), reflecting strong shareholder return focus. Consolidated cash and\ninvestments totaled \u25a047,549 crore, reinforcing liquidity strength. ", "extractionText": "Large deal Total Contract Value\n(TCV) reached US$11.6 billion", "afterText": ", and 85 clients generated over US$50 million annually. These\nfinancial indicators demonstrate operational efficiency, strong margin management, and d", "attributesHtml": "<div><strong>class:</strong> financial_metric</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">metric_type</span>: <span class=\"lx-attr-value\">total contract value</span>}</div>"}, {"index": 28, "class": "financial_metric", "text": "US$50 million", "color": "#FEF0C3", "startPos": 1686, "endPos": 1699, "beforeText": "s totaled \u25a047,549 crore, reinforcing liquidity strength. Large deal Total Contract Value\n(TCV) reached US$11.6 billion, and 85 clients generated over ", "extractionText": "US$50 million", "afterText": " annually. These\nfinancial indicators demonstrate operational efficiency, strong margin management, and disciplined\ngrowth.\n\n3. Revenue Mix &amp; Geograph", "attributesHtml": "<div><strong>class:</strong> financial_metric</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">metric_type</span>: <span class=\"lx-attr-value\">revenue per client</span>}</div>"}, {"index": 29, "class": "date", "text": "FY 2024-25", "color": "#D2E3FC", "startPos": 1927, "endPos": 1937, "beforeText": "ng margin management, and disciplined\ngrowth.\n\n3. Revenue Mix &amp; Geographic Distribution\nRevenue distribution reflects diversified global exposure. In ", "extractionText": "FY 2024-25", "afterText": ", North America contributed\n57.9% of total revenues, Europe accounted for 29.8%, Rest of the World contributed 9.2%, and\nIndia represented 3.1%. This ", "attributesHtml": "<div><strong>class:</strong> date</div><div><strong>attributes:</strong> {}</div>"}, {"index": 30, "class": "percentage", "text": "57", "color": "#EADDFF", "startPos": 1965, "endPos": 1967, "beforeText": "growth.\n\n3. Revenue Mix &amp; Geographic Distribution\nRevenue distribution reflects diversified global exposure. In FY 2024-25, North America contributed\n", "extractionText": "57", "afterText": ".9% of total revenues, Europe accounted for 29.8%, Rest of the World contributed 9.2%, and\nIndia represented 3.1%. This geographic mix underscores Inf", "attributesHtml": "<div><strong>class:</strong> percentage</div><div><strong>attributes:</strong> {}</div>"}, {"index": 31, "class": "percentage", "text": "9%", "color": "#EADDFF", "startPos": 1968, "endPos": 1970, "beforeText": "wth.\n\n3. Revenue Mix &amp; Geographic Distribution\nRevenue distribution reflects diversified global exposure. In FY 2024-25, North America contributed\n57.", "extractionText": "9%", "afterText": " of total revenues, Europe accounted for 29.8%, Rest of the World contributed 9.2%, and\nIndia represented 3.1%. This geographic mix underscores Infosy", "attributesHtml": "<div><strong>class:</strong> percentage</div><div><strong>attributes:</strong> {}</div>"}, {"index": 32, "class": "financial_metric", "text": "total revenues", "color": "#FEF0C3", "startPos": 1974, "endPos": 1988, "beforeText": "3. Revenue Mix &amp; Geographic Distribution\nRevenue distribution reflects diversified global exposure. In FY 2024-25, North America contributed\n57.9% of ", "extractionText": "total revenues", "afterText": ", Europe accounted for 29.8%, Rest of the World contributed 9.2%, and\nIndia represented 3.1%. This geographic mix underscores Infosys\u2019 strong presence", "attributesHtml": "<div><strong>class:</strong> financial_metric</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">metric_type</span>: <span class=\"lx-attr-value\">revenue</span>}</div>"}, {"index": 33, "class": "percentage", "text": "29.8%", "color": "#EADDFF", "startPos": 2011, "endPos": 2016, "beforeText": "ion\nRevenue distribution reflects diversified global exposure. In FY 2024-25, North America contributed\n57.9% of total revenues, Europe accounted for ", "extractionText": "29.8%", "afterText": ", Rest of the World contributed 9.2%, and\nIndia represented 3.1%. This geographic mix underscores Infosys\u2019 strong presence in developed\nmarkets while ", "attributesHtml": "<div><strong>class:</strong> percentage</div><div><strong>attributes:</strong> {}</div>"}, {"index": 34, "class": "percentage", "text": "9.2%", "color": "#EADDFF", "startPos": 2048, "endPos": 2052, "beforeText": "ersified global exposure. In FY 2024-25, North America contributed\n57.9% of total revenues, Europe accounted for 29.8%, Rest of the World contributed ", "extractionText": "9.2%", "afterText": ", and\nIndia represented 3.1%. This geographic mix underscores Infosys\u2019 strong presence in developed\nmarkets while maintaining expanding footprints in ", "attributesHtml": "<div><strong>class:</strong> percentage</div><div><strong>attributes:</strong> {}</div>"}, {"index": 35, "class": "percentage", "text": "3.1%", "color": "#EADDFF", "startPos": 2076, "endPos": 2080, "beforeText": " FY 2024-25, North America contributed\n57.9% of total revenues, Europe accounted for 29.8%, Rest of the World contributed 9.2%, and\nIndia represented ", "extractionText": "3.1%", "afterText": ". This geographic mix underscores Infosys\u2019 strong presence in developed\nmarkets while maintaining expanding footprints in emerging economies. Sector d", "attributesHtml": "<div><strong>class:</strong> percentage</div><div><strong>attributes:</strong> {}</div>"}, {"index": 36, "class": "organization", "text": "Infosys", "color": "#FFDDBE", "startPos": 2114, "endPos": 2121, "beforeText": "\n57.9% of total revenues, Europe accounted for 29.8%, Rest of the World contributed 9.2%, and\nIndia represented 3.1%. This geographic mix underscores ", "extractionText": "Infosys", "afterText": "\u2019 strong presence in developed\nmarkets while maintaining expanding footprints in emerging economies. Sector diversification\nacross Banking &amp; Financial", "attributesHtml": "<div><strong>class:</strong> organization</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">type</span>: <span class=\"lx-attr-value\">company</span>}</div>"}, {"index": 37, "class": "market_event", "text": "expanding footprints", "color": "#F9DEDC", "startPos": 2178, "endPos": 2198, "beforeText": "e World contributed 9.2%, and\nIndia represented 3.1%. This geographic mix underscores Infosys\u2019 strong presence in developed\nmarkets while maintaining ", "extractionText": "expanding footprints", "afterText": " in emerging economies. Sector diversification\nacross Banking &amp; Financial Services, Manufacturing, Retail, Energy, Utilities, Communications,\nHealthca", "attributesHtml": "<div><strong>class:</strong> market_event</div><div><strong>attributes:</strong> {}</div>"}, {"index": 38, "class": "economic_indicator", "text": "concentration risk", "color": "#C8E6C9", "startPos": 2378, "endPos": 2396, "beforeText": " diversification\nacross Banking &amp; Financial Services, Manufacturing, Retail, Energy, Utilities, Communications,\nHealthcare, and Life Sciences reduces ", "extractionText": "concentration risk", "afterText": ". Strategic client partnerships and\nlong-term digital transformation engagements continue to drive recurring revenue stability and\nlarge-deal momentum", "attributesHtml": "<div><strong>class:</strong> economic_indicator</div><div><strong>attributes:</strong> {}</div>"}, {"index": 39, "class": "financial_metric", "text": "recurring revenue stability", "color": "#FEF0C3", "startPos": 2495, "endPos": 2522, "beforeText": "hcare, and Life Sciences reduces concentration risk. Strategic client partnerships and\nlong-term digital transformation engagements continue to drive ", "extractionText": "recurring revenue stability", "afterText": " and\nlarge-deal momentum across geographies.\n\n4. Strategic Priorities &amp; Enterprise AI\nInfosys\u2019 strategy centers on Enterprise AI transformation. Throu", "attributesHtml": "<div><strong>class:</strong> financial_metric</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">metric_type</span>: <span class=\"lx-attr-value\">revenue</span>}</div>"}, {"index": 40, "class": "financial_metric", "text": "large-deal momentum", "color": "#FEF0C3", "startPos": 2527, "endPos": 2546, "beforeText": " concentration risk. Strategic client partnerships and\nlong-term digital transformation engagements continue to drive recurring revenue stability and\n", "extractionText": "large-deal momentum", "afterText": " across geographies.\n\n4. Strategic Priorities &amp; Enterprise AI\nInfosys\u2019 strategy centers on Enterprise AI transformation. Through Infosys Topaz, the co", "attributesHtml": "<div><strong>class:</strong> financial_metric</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">metric_type</span>: <span class=\"lx-attr-value\">business performance</span>}</div>"}, {"index": 41, "class": "market_event", "text": "Enterprise AI transformation", "color": "#F9DEDC", "startPos": 2637, "endPos": 2665, "beforeText": "o drive recurring revenue stability and\nlarge-deal momentum across geographies.\n\n4. Strategic Priorities &amp; Enterprise AI\nInfosys\u2019 strategy centers on ", "extractionText": "Enterprise AI transformation", "afterText": ". Through Infosys Topaz, the company\nintegrates Artificial Intelligence, Cloud (Infosys Cobalt), Data architecture, Cybersecurity,\nAutomation, and Dig", "attributesHtml": "<div><strong>class:</strong> market_event</div><div><strong>attributes:</strong> {}</div>"}, {"index": 42, "class": "organization", "text": "Infosys Topaz", "color": "#FFDDBE", "startPos": 2675, "endPos": 2688, "beforeText": "d\nlarge-deal momentum across geographies.\n\n4. Strategic Priorities &amp; Enterprise AI\nInfosys\u2019 strategy centers on Enterprise AI transformation. Through ", "extractionText": "Infosys Topaz", "afterText": ", the company\nintegrates Artificial Intelligence, Cloud (Infosys Cobalt), Data architecture, Cybersecurity,\nAutomation, and Digital platforms to enabl", "attributesHtml": "<div><strong>class:</strong> organization</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">type</span>: <span class=\"lx-attr-value\">product</span>}</div>"}, {"index": 43, "class": "organization", "text": "Infosys Cobalt", "color": "#FFDDBE", "startPos": 2745, "endPos": 2759, "beforeText": "nterprise AI\nInfosys\u2019 strategy centers on Enterprise AI transformation. Through Infosys Topaz, the company\nintegrates Artificial Intelligence, Cloud (", "extractionText": "Infosys Cobalt", "afterText": "), Data architecture, Cybersecurity,\nAutomation, and Digital platforms to enable AI-first enterprises. The organization is investing in\ngenerative AI,", "attributesHtml": "<div><strong>class:</strong> organization</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">type</span>: <span class=\"lx-attr-value\">product</span>}</div>"}, {"index": 44, "class": "organization", "text": "Infosys", "color": "#FFDDBE", "startPos": 3408, "endPos": 3415, "beforeText": "nts improve\nproductivity, optimize supply chains, enhance customer experience, and accelerate innovation\ncycles.\n\n5. ESG &amp; Sustainability Performance\n", "extractionText": "Infosys", "afterText": " continues to lead in Environmental, Social, and Governance (ESG) performance. The\ncompany has remained carbon neutral for six consecutive years acros", "attributesHtml": "<div><strong>class:</strong> organization</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">type</span>: <span class=\"lx-attr-value\">company</span>}</div>"}, {"index": 45, "class": "organization", "text": "Infosys", "color": "#FFDDBE", "startPos": 3930, "endPos": 3937, "beforeText": "juvenation projects, adding 4.3 billion liters to water holding capacity. The company emphasizes\nregenerative practices and climate positivity goals. ", "extractionText": "Infosys", "afterText": " has been recognized among the World\u2019s\nMost Ethical Companies f", "attributesHtml": "<div><strong>class:</strong> organization</div><div><strong>attributes:</strong> {<span class=\"lx-attr-key\">type</span>: <span class=\"lx-attr-value\">company</span>}</div>"}];
+        let currentIndex = 0;
+        let isPlaying = false;
+        let animationInterval = null;
+        let animationSpeed = 1.0;
+
+        function updateDisplay() {
+          const extraction = extractions[currentIndex];
+          if (!extraction) return;
+
+          document.getElementById('attributesContainer').innerHTML = extraction.attributesHtml;
+          document.getElementById('entityInfo').textContent = (currentIndex + 1) + '/' + extractions.length;
+          document.getElementById('posInfo').textContent = '[' + extraction.startPos + '-' + extraction.endPos + ']';
+          document.getElementById('progressSlider').value = currentIndex;
+
+          const playBtn = document.querySelector('.lx-control-btn');
+          if (playBtn) playBtn.textContent = isPlaying ? '⏸ Pause' : '▶️ Play';
+
+          const prevHighlight = document.querySelector('.lx-text-window .lx-current-highlight');
+          if (prevHighlight) prevHighlight.classList.remove('lx-current-highlight');
+          const currentSpan = document.querySelector('.lx-text-window span[data-idx="' + currentIndex + '"]');
+          if (currentSpan) {
+            currentSpan.classList.add('lx-current-highlight');
+            currentSpan.scrollIntoView({block: 'center', behavior: 'smooth'});
+          }
+        }
+
+        function nextExtraction() {
+          currentIndex = (currentIndex + 1) % extractions.length;
+          updateDisplay();
+        }
+
+        function prevExtraction() {
+          currentIndex = (currentIndex - 1 + extractions.length) % extractions.length;
+          updateDisplay();
+        }
+
+        function jumpToExtraction(index) {
+          currentIndex = parseInt(index);
+          updateDisplay();
+        }
+
+        function playPause() {
+          if (isPlaying) {
+            clearInterval(animationInterval);
+            isPlaying = false;
+          } else {
+            animationInterval = setInterval(nextExtraction, animationSpeed * 1000);
+            isPlaying = true;
+          }
+          updateDisplay();
+        }
+
+        window.playPause = playPause;
+        window.nextExtraction = nextExtraction;
+        window.prevExtraction = prevExtraction;
+        window.jumpToExtraction = jumpToExtraction;
+
+        updateDisplay();
+      })();
+    </script>
